@@ -18,28 +18,40 @@ body {
   color: var(--text-color) !important;
   background-color: var(--bg-color) !important;
 
-  #light-mode-btn {
+  .more-btn {
     position: fixed;
-    top: 40px;
-    right: 40px;
-    padding: 1rem;
-    border-radius: 100%;
+    top: 30px;
+    right: 30px;
+    padding: .5rem;
+    border-radius: 10px;
     width: 50px;
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: var(--dark-pink);
-    color: #FFF;
-    border: 0;
+    color: #fff;
     z-index: 1;
-    outline: none;
-    transition: transform 0.5s ease;
-    &:focus-visible {
-      outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s ease;
+    .short-cut-items {
+      display: none;
     }
-    &:hover {
-      transform: scale(1.1);
+    &.expanded-list {
+      height: 282px;
+
+      .short-cut-items {
+        display: block;
+        li {
+          padding-top: 1rem;
+          text-align: center;
+          a {
+            color: #fff;
+          }
+        }
+
+      }
     }
   }
   .home {
@@ -56,6 +68,15 @@ body {
       top: 0;
       left: 0;
       right: 0;
+    }
+    &:after {
+      content: "Scroll Down";
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scroll-down 2s ease;
+      animation-iteration-count: infinite;
     }
     .profile-pic {
       width: 200px;
@@ -117,19 +138,19 @@ body {
       .cursor.blink {
         animation: blink infinite 1s;
       }
-      .btn-pink{
+      .btn-pink {
         background-color: var(--dark-pink);
         color: #fff;
         transition: transform 0.5s ease;
         &:hover {
           transform: scale(1.1);
         }
-        }
+      }
       .social-networks {
         display: flex;
         margin-top: 2rem;
         flex-wrap: wrap;
-         li {
+        li {
           margin: 0.5rem;
           width: 50px;
           height: 50px;
@@ -138,7 +159,7 @@ body {
           justify-content: center;
           align-items: center;
           background-color: var(--dark-pink);
-          transition: transform .5s ease;
+          transition: transform 0.5s ease;
           a {
             color: #fff;
             &:hover {
@@ -151,7 +172,7 @@ body {
           &:hover {
             transform: scale(1.1);
           }
-         }
+        }
       }
       .name-font {
         @extend #font-size-3rem;
@@ -161,20 +182,155 @@ body {
   .about-me {
     padding-top: 40px;
   }
-  .skills{
+  .skills {
     .skill-icon {
-      display: inline-block;
-      margin: 0 2rem 3rem 2rem;
       text-align: center;
+      padding-top: 1rem;
       img {
-        width: 60px;
+        width: 100px;
       }
       p {
-        margin-top: .5rem;
-
-        font-size: 1.3rem;
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
       }
     }
+  }
+  .work-timeline {
+    position: relative;
+    margin-top: 3rem;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      left: 50%;
+      width: 2px;
+      top: 0;
+      background: var(--text-color);
+    }
+    li {
+      position: relative;
+      h3 {
+        color: var(--dark-pink);
+        font-weight: bold;
+        margin-bottom: 2rem;
+      }
+      .timeline-content {
+        width: 50%;
+      }
+      .timeline-year {
+        width: 50%;
+        color: var(--dark-pink);
+        font-weight: bold;
+        margin-top: -4px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: calc(50% - 6px);
+        width: 14px;
+        height: 14px;
+        background: var(--text-color);
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px rgba(58, 112, 239, 0.2);
+      }
+      &:nth-child(odd) {
+        .timeline-content {
+          padding-right: 2rem;
+          float: left;
+        }
+        .timeline-year {
+          padding-left: 2rem;
+          float: right;
+        }
+      }
+      &:nth-child(even) {
+        .timeline-content {
+          padding-left: 2rem;
+          float: right;
+        }
+        .timeline-year {
+          padding-right: 2rem;
+          text-align: right;
+          float: left;
+        }
+      }
+    }
+  }
+
+  .education-timeline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    position: relative;
+    .education-timeline-item {
+      position: relative;
+      border: 3px solid var(--text-color);
+      border-radius: 5px;
+      padding: 1rem;
+
+      h3 {
+        color: var(--dark-pink);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      &:nth-child(1)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -8px;
+        width: 14px;
+        height: 14px;
+        background: var(--text-color);
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px rgba(58, 112, 239, 0.2);
+      }
+      &.btech-item::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -8px;
+        width: 14px;
+        height: 14px;
+        background: var(--text-color);
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px rgba(58, 112, 239, 0.2);
+      }
+    }
+    .study-emoji {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        width: 32px;
+        height: 32px;
+        background: url(https://emojis.slackmojis.com/emojis/images/1643516167/21918/graduation-celebration.gif?1643516167)
+          left bottom / cover no-repeat;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 52%;
+        left: 0;
+        height: 5px;
+        width: 0%;
+        background-color: var(--text-color);
+        animation: load 2s;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+  .end-credits {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    background: var(--dark-pink);
+    color: #fff;
   }
 }
 
@@ -186,13 +342,12 @@ h1 {
       position: absolute;
       content: "";
       bottom: -5px;
-      left: 35%;
-      width: 40%;
+      left: calc(50% - 2rem);
+      width: 4rem;
       height: 4px;
       background-color: var(--dark-pink);
     }
   }
-  
 }
 
 #font-size-3rem {
@@ -204,14 +359,83 @@ h1 {
   --bg-color: #faeee7;
 }
 
+.highlighted-text {
+  color: var(--dark-pink);
+}
+
 @media (max-width: 800px) {
   .home {
     .profile-pic {
       display: none;
     }
   }
-}
+  .work-timeline {
+    &::before {
+      left: 0 !important;
+    }
+    li {
+      &:before {
+        left: -6px !important;
+      }
+      .timeline-content {
+        width: 100% !important;
+        float: none !important;
+        padding-left: 2rem;
+        padding-right: 0 !important;
+      }
+      .timeline-year {
+        width: 100% !important;
+        float: none !important;
+        text-align: left !important;
+        padding-left: 2rem;
+        padding-right: 0 !important;
+        margin-top: 0 !important;
+        p {
+          display: inline-block;
+          border: 2px solid var(--text-color);
+          border-radius: 8px;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
 
+  .education-timeline {
+    flex-direction: column;
+
+    .education-timeline-item {
+      &:nth-child(1)::after {
+        top: auto !important;
+        bottom: -8px;
+        left: 50% !important;
+        transform: translateX(-50%);
+      }
+      &.btech-item::before {
+        top: -8px !important;
+        right: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%);
+      }
+    }
+    .study-emoji {
+      min-height: 100px;
+      padding: 0;
+      &::before {
+        left: 40% !important;
+        transform: translateX(-40%) !important;
+      }
+      &::after {
+        top: 0 !important;
+        left: 50% !important;
+        height: 0;
+        width: 5px !important;
+        transform: translateX(-50%);
+        animation: loadY 2s !important;
+        animation-iteration-count: infinite !important;
+      }
+    }
+  }
+}
 
 @keyframes blink {
   0% {
@@ -224,7 +448,6 @@ h1 {
     opacity: 0;
   }
 }
-
 
 @keyframes wave-animation {
   0% {
@@ -247,8 +470,35 @@ h1 {
   }
   60% {
     transform: rotate(0deg);
-  } 
+  }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes loadY {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100px;
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

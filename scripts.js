@@ -2,18 +2,39 @@ AOS.init({
     duration: 1000,
 });
 
-const lightMode = document.getElementById('light-mode-btn');
+const moreBtn = document.querySelector('.more-btn');
+const expandBtn = document.getElementById('expand-btn');
+const moreBtnIcon = document.getElementById('more-btn-icon');
 
-lightMode.addEventListener('click', () => {
+
+expandBtn.addEventListener('click', () => {
+
+  const isExpanded = moreBtn.classList.contains('expanded-list');
+
+  if (!isExpanded) {
+    moreBtnIcon.classList.add('fa-xmark');
+    moreBtnIcon.classList.remove('fa-bars');
+    moreBtn.classList.add('expanded-list');
+  } else {
+    moreBtn.classList.remove('expanded-list');
+    moreBtnIcon.classList.remove('fa-xmark');
+    moreBtnIcon.classList.add('fa-bars');
+  }
+ 
+});
+
+const nightNode = document.getElementById('night-mode');
+
+nightNode.addEventListener('click', () => {
    const isLightMode =  document.body.classList.contains('light-mode');
     if (isLightMode) {
         document.body.classList.remove('light-mode');   
-        lightMode.innerHTML = ' <i class="fa-solid fa-moon"></i>';
+        nightNode.innerHTML = ' <i class="fa-solid fa-moon"></i>';
     } else {  
         document.body.classList.add('light-mode');  
-        lightMode.innerHTML = ' <i class="fa-solid fa-sun"></i>';
+        nightNode.innerHTML = '<i class="fa-solid fa-sun"></i>';
     }
-})
+});
 
 
 const typedText = document.querySelector(".typed-text");
