@@ -20,7 +20,7 @@ body {
     position: fixed;
     top: 30px;
     right: 30px;
-    padding: .5rem;
+    padding: 0.5rem;
     border-radius: 10px;
     width: 50px;
     height: 50px;
@@ -48,7 +48,6 @@ body {
             color: #fff;
           }
         }
-
       }
     }
   }
@@ -179,6 +178,9 @@ body {
   }
   .about-me {
     padding-top: 40px;
+    .current-company-url {
+      color: var(--dark-pink);
+    }
   }
   .skills {
     .skill-icon {

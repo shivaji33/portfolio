@@ -39,7 +39,7 @@ nightNode.addEventListener('click', () => {
 
 const typedText = document.querySelector(".typed-text");
 const cursor = document.querySelector(".cursor");
-const textArray = ['Software Developer',"Web Developer", 'MEAN Stack', 'Tech Enthusiast', 'Telugu Guy'];
+const textArray = ['Software Developer',"Web Developer", 'Tech Enthusiast', 'తెలుగు (Telugu)'];
 charIndex = 0;
 textArrayIndex = 0;
 

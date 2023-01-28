@@ -17,7 +17,7 @@ body {
     position: fixed;
     top: 30px;
     right: 30px;
-    padding: .5rem;
+    padding: 0.5rem;
     border-radius: 10px;
     width: 50px;
     height: 50px;
@@ -141,6 +141,8 @@ body {
             transform: scale(1.1); }
   body .about-me {
     padding-top: 40px; }
+    body .about-me .current-company-url {
+      color: var(--dark-pink); }
   body .skills .skill-icon {
     text-align: center;
     padding-top: 1rem; }
