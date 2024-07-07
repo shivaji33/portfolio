@@ -2,25 +2,20 @@ AOS.init({
     duration: 1000,
 });
 
-const moreBtn = document.querySelector('.more-btn');
-const expandBtn = document.getElementById('expand-btn');
-const moreBtnIcon = document.getElementById('more-btn-icon');
+const speedDialBtn = document.getElementById('speedDialBtn');
+const navigationList = document.getElementById('navigationList');
+const moreBtn = document.getElementById('more-btn-icon');
 
-
-expandBtn.addEventListener('click', () => {
-
-  const isExpanded = moreBtn.classList.contains('expanded-list');
-
-  if (!isExpanded) {
-    moreBtnIcon.classList.add('fa-xmark');
-    moreBtnIcon.classList.remove('fa-bars');
-    moreBtn.classList.add('expanded-list');
+speedDialBtn.addEventListener('click', () => {
+  if (navigationList.style.display === 'block') {
+    navigationList.style.display = 'none';
+    moreBtn.classList.remove('fa-times');
+    moreBtn.classList.add('fa-plus');
   } else {
-    moreBtn.classList.remove('expanded-list');
-    moreBtnIcon.classList.remove('fa-xmark');
-    moreBtnIcon.classList.add('fa-bars');
+    navigationList.style.display = 'block';
+    moreBtn.classList.remove('fa-plus');
+    moreBtn.classList.add('fa-times');
   }
- 
 });
 
 const nightNode = document.getElementById('night-mode');
@@ -29,9 +24,11 @@ nightNode.addEventListener('click', () => {
    const isLightMode =  document.body.classList.contains('light-mode');
     if (isLightMode) {
         document.body.classList.remove('light-mode');   
+        document.body.classList.add('dark-mode');   
         nightNode.innerHTML = ' <i class="fa-solid fa-moon"></i>';
     } else {  
         document.body.classList.add('light-mode');  
+        document.body.classList.remove('dark-mode');   
         nightNode.innerHTML = '<i class="fa-solid fa-sun"></i>';
     }
 });
