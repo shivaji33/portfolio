@@ -167,24 +167,24 @@ body .work-timeline::before {
   top: 0;
   background: var(--text-color);
 }
-body .work-timeline li {
+body .work-timeline li.progress-line {
   position: relative;
 }
-body .work-timeline li h3 {
+body .work-timeline li.progress-line h3 {
   color: var(--dark-pink);
   font-weight: bold;
   margin-bottom: 2rem;
 }
-body .work-timeline li .timeline-content {
+body .work-timeline li.progress-line .timeline-content {
   width: 50%;
 }
-body .work-timeline li .timeline-year {
+body .work-timeline li.progress-line .timeline-year {
   width: 50%;
   color: var(--dark-pink);
   font-weight: bold;
   margin-top: -4px;
 }
-body .work-timeline li::before {
+body .work-timeline li.progress-line::before {
   content: "";
   position: absolute;
   top: 0;
@@ -195,19 +195,19 @@ body .work-timeline li::before {
   border-radius: 50%;
   box-shadow: 0 0 0 3px rgba(58, 112, 239, 0.2);
 }
-body .work-timeline li:nth-child(odd) .timeline-content {
+body .work-timeline li.progress-line:nth-child(odd) .timeline-content {
   padding-right: 2rem;
   float: left;
 }
-body .work-timeline li:nth-child(odd) .timeline-year {
+body .work-timeline li.progress-line:nth-child(odd) .timeline-year {
   padding-left: 2rem;
   float: right;
 }
-body .work-timeline li:nth-child(even) .timeline-content {
+body .work-timeline li.progress-line:nth-child(even) .timeline-content {
   padding-left: 2rem;
   float: right;
 }
-body .work-timeline li:nth-child(even) .timeline-year {
+body .work-timeline li.progress-line:nth-child(even) .timeline-year {
   padding-right: 2rem;
   text-align: right;
   float: left;
@@ -317,16 +317,16 @@ h1 {
   .work-timeline::before {
     left: 0 !important;
   }
-  .work-timeline li:before {
+  .work-timeline li.progress-line:before {
     left: -6px !important;
   }
-  .work-timeline li .timeline-content {
+  .work-timeline li.progress-line .timeline-content {
     width: 100% !important;
     float: none !important;
     padding-left: 2rem;
     padding-right: 0 !important;
   }
-  .work-timeline li .timeline-year {
+  .work-timeline li.progress-line .timeline-year {
     width: 100% !important;
     float: none !important;
     text-align: left !important;
@@ -334,7 +334,7 @@ h1 {
     padding-right: 0 !important;
     margin-top: 0 !important;
   }
-  .work-timeline li .timeline-year p {
+  .work-timeline li.progress-line .timeline-year p {
     display: inline-block;
     border: 2px solid var(--text-color);
     border-radius: 8px;
